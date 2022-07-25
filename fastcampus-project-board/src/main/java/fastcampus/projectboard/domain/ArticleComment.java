@@ -1,23 +1,15 @@
 package fastcampus.projectboard.domain;
 
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,9 +22,8 @@ import lombok.ToString;
 		@Index(columnList = "createdAt"),
 		@Index(columnList = "createdBy")
 })
-@EntityListeners(AuditingEntityListener.class)
 @Entity
-public class ArticleComment {
+public class ArticleComment extends AuditingFields {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,11 +31,6 @@ public class ArticleComment {
 	
 	@Setter @ManyToOne(optional = false) private Article article; //게시글 (id)
 	@Setter @Column(nullable = false, length = 500) private String content; //본문
-	
-	@CreatedDate @Column(nullable = false) private Date createdAt; //생성일시
-	@CreatedBy @Column(nullable = false, length = 100) private String createdBy; //생성자
-	@LastModifiedDate @Column(nullable = false) private Date modifiedAt; //수정일시
-	@LastModifiedBy @Column(nullable = false, length = 100) private String modifiedBy; //수정자
 	
 	protected ArticleComment() {}
 
