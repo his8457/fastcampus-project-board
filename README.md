@@ -11,4 +11,3 @@
 - 디자인 : Bootstrap 5.2
 - 인증 : Spring security
 - Lombok, Spring Boot DevTools, Spring Boot Actuator
-- 참고 : https://start.spring.io/
