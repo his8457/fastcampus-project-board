@@ -4,7 +4,7 @@
 
 ### 기술 스택
 - Java 17
-- Spring Boot 2.7.0
+- Spring Boot 3.4.2
 - Spring Web
 - Spring Data JPA, H2 Database, MySQL Driver
 - Rest Repositories, Rest Repositories HAL Explorer
